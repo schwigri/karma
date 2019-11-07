@@ -273,6 +273,30 @@ summary h2 {
 	margin-top: -1em;
 }
 
+.pagination-wrapper {
+	margin: 4rem auto;
+}
+
+.pagination-wrapper h2 {
+	border-color: #6d6d6d;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	margin-bottom: 4rem;
+	width: 50%;
+}
+
+.pagination-wrapper .nav-links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
 .toggle-icon {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -1405,6 +1429,10 @@ button.search-untoggle {
 
 	.site-content {
 		margin: 8rem 0;
+	}
+
+	.pagination-wrapper {
+		grid-column: auto / span 2;
 	}
 
 	.header-titles-wrapper {

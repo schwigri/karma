@@ -134,3 +134,26 @@ summary {
 		margin-top: -1em;
 	}
 }
+
+.pagination-wrapper {
+	@include medium {
+		grid-column: auto / span 2;
+	}
+
+	margin: 4rem auto;
+
+	h2 {
+		border-color: $c-text-light;
+		border-left: 0;
+		border-right: 0;
+		border-top: 0;
+		margin-bottom: 4rem;
+		width: 50%;
+	}
+
+	.nav-links {
+		display: flex;
+		justify-content: space-between;
+		justify-content: space-around;
+	}
+}
