@@ -68,7 +68,7 @@
 						</span>
 					</button>--><!-- .mobile-nav-toggle -->
 
-					<button class="toggle translations-toggle mobile-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-translations-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
+					<button class="toggle translations-toggle mobile-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
 						<span class="toggle-inner">
 							<span class="toggle-icon">
 								<?php karma_the_theme_svg( 'translation' ); ?>
@@ -118,7 +118,7 @@
 
 						<div class="toggle-wrapper translate-toggle-wrapper">
 
-							<button class="toggle search-toggle desktop-translate-toggle">
+						<button class="toggle translations-toggle desktop-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
 								<span class="toggle-inner">
 									<span class="toggle-icon">
 										<?php karma_the_theme_svg( 'translation' ); ?>
@@ -140,6 +140,8 @@
 			if ( true === $enable_header_search ) {
 				get_template_part( 'template-parts/modal-search' );
 			}
+
+			get_template_part( 'template-parts/modal-translations' );
 			?>
 
 			<?php
