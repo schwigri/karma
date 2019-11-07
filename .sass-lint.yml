@@ -1,0 +1,21 @@
+rules:
+  property-sort-order:
+    - 0
+    - ignore-custom-properties: true
+  indentation:
+    - 1
+    - size: "tab"
+  leading-zero:
+    - 1
+    - include: true
+  quotes:
+    - 1
+    - style: "double"
+  nesting-depth:
+    - 1
+    - max-depth: 3
+  hex-notation:
+    - 2
+    - style: "lowercase"
+  url-quotes:
+    - 0

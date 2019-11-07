@@ -1,0 +1,23 @@
+/*!
+Theme Name: Karma
+Theme URI: https://github.com/schwigri/karma
+Text Domain: karma
+Version: 1.0
+Description: कर्म (karma) in the present affects one’s future in the current life, as well as the nature and quality of future lives.
+Author: Griffen Schwiesow
+Author URI: https://www.griffen.me/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+This theme, unlike WordPress, is licensed under the MIT license.
+Use it to make something cool, have fun, and share what you've learned
+with others.
+*/
+
+@import "./assets/styles/inc/mixins";
+@import "./assets/styles/inc/variables";
+@import "./assets/styles/inc/base";
+@import "./assets/styles/inc/layout";
+@import "./assets/styles/inc/modules/modules";

@@ -1,0 +1,43 @@
+.toggle-icon {
+	@include reduced-motion {
+		transition: none;
+	}
+
+	align-items: center;
+	display: flex;
+	height: var(--s-icon-size);
+	transform: scale(1);
+	transform-origin: center;
+	transition: transform 0.15s linear;
+
+	.svg-icon {
+		fill: var(--c-text);
+	}
+}
+
+.toggle-text {
+	@extend %screen-reader-text;
+}
+
+.toggle-inner {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: relative;
+}
+
+.toggle {
+	background-color: transparent;
+	border: 0;
+	display: block;
+
+	&:hover {
+		background-color: transparent;
+
+		.toggle-icon {
+			transform: scale(1.1);
+		}
+	}
+}

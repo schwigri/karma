@@ -1,0 +1,9 @@
+.site-footer,
+.site-header {
+	display: none;
+}
+
+.has-header-image>.has-image,
+.has-header-image>.post:not(.card)>.has-image {
+	padding-bottom: calc(9 / 16 * 50%);
+}

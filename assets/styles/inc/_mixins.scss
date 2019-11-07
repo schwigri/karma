@@ -1,0 +1,23 @@
+@mixin medium {
+	@media (min-width: #{$s-medium}) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media (min-width: #{$s-large}) {
+		@content;
+	}
+}
+
+@mixin reduced-motion {
+	@media (prefers-reduced-motion: reduce) {
+		@content;
+	}
+}
+
+@mixin dark-mode {
+	@media only screen and (prefers-color-scheme: dark) {
+		@content;
+	}
+}

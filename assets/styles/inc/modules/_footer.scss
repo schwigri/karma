@@ -1,0 +1,76 @@
+.footer-brands-container {
+	@extend %content-inner;
+
+	@include medium {
+		grid-template-columns: repeat(13, 1fr);
+	}
+
+	display: grid;
+	gap: 2rem; // sass-lint:disable-line no-misspelled-properties Is a real property.
+	grid-gap: 2rem;
+	grid-template-columns: repeat(2, 1fr);
+
+	.widget {
+		@include medium {
+			grid-column: auto / span 3;
+
+			&:nth-child(8n + 5) {
+				grid-column: 2 / span 3;
+			}
+		}
+
+		height: 0;
+		padding-bottom: calc(9 / 16 * 100%);
+		position: relative;
+		width: 100%;
+
+		a {
+			@extend %special-link;
+
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+
+		img {
+			box-sizing: border-box;
+			display: block;
+			// @TODO: remove !important somehow.
+			// WordPress adds inline height: auto; to images in widgets so they do not
+			// follow the
+			height: 100% !important; // sass-lint:disable-line no-important Until can be fixed.
+			left: 0;
+			object-fit: contain;
+			object-position: center;
+			padding: 2rem;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	.widget-title {
+		display: none;
+	}
+}
+
+.footer-text-container {
+	font-size: 0.8em;
+	margin-top: 2rem;
+	text-align: center;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.site-footer {
+	background-color: $c-dark-background;
+	color: $c-light-on-dark;
+	padding: 4rem 0;
+
+	a {
+		color: $c-light-on-dark;
+	}
+}

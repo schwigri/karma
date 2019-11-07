@@ -1,0 +1,16 @@
+.cta-wrapper {
+	margin: 2rem auto;
+	text-align: center;
+}
+
+.cta {
+	background-color: $c-home-cta-background;
+	border: 1px solid $c-home-cta-border;
+	color: $c-light-on-dark;
+
+	&:hover {
+		background-color: $c-black;
+		border: 1px solid $c-home-cta-border;
+		color: $c-light-on-dark;
+	}
+}

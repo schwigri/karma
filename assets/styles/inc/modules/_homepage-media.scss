@@ -1,0 +1,90 @@
+.homepage-media {
+	@include medium {
+		// padding-bottom: 42.55319149%; // Original video dimensions.
+		padding-bottom: calc(9 / 16 * 100%);
+	}
+
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.homepage-image,
+.homepage-video {
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.homepage-video {
+	@include medium {
+		transform: scale(1);
+	}
+
+	transform: scale(1.42);
+}
+
+.homepage-media-background {
+	background-color: $c-black;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.homepage-media-foreground {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+
+	p {
+		@include medium {
+			font-size: 2em;
+		}
+
+		@include large {
+			font-size: 2.4em;
+		}
+
+		color: $c-light-on-dark;
+		font-family: var(--f-heading-family);
+		font-size: 1.6em;
+		font-weight: 800;
+		line-height: 1.2;
+		margin-bottom: 0.5em;
+		text-align: center;
+		//text-shadow: 1px 1px 2px $c-black;
+		white-space: pre-line;
+	}
+
+	.cta-wrapper {
+		margin-bottom: -4rem;
+		margin-top: 4rem;
+	}
+
+	.video-controls {
+		.svg-icon {
+			fill: $c-light-on-dark;
+		}
+	}
+}
+
+.homepage-media-video-controls {
+	bottom: 2rem;
+	position: absolute;
+	right: 2rem;
+}

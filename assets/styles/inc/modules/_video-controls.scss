@@ -1,0 +1,10 @@
+.video-control {
+	&[aria-pressed="true"] {
+		display: none;
+	}
+}
+
+.video-controls {
+	align-items: center;
+	display: flex;
+}

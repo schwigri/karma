@@ -1,0 +1,129 @@
+html,
+body {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	@include medium {
+		font-size: 78%;
+	}
+
+	font-size: 62.5%;
+}
+
+body {
+	background-color: $c-background;
+	color: $c-text;
+	font-family: var(--f-copy-family);
+	font-size: 1.6rem;
+	line-height: 1.666;
+	text-align: left;
+}
+
+@supports (font-variation-settings: normal) {
+	body {
+		font-family: var(--f-copy-family-var);
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--f-heading-family);
+	font-weight: var(--f-heading-weight);
+	line-height: 1.2;
+	letter-spacing: var(--letter-spacing, 0);
+	margin: 1em auto 0.5em;
+	max-width: var(--s-copy-width);
+	padding: 0 2rem;
+	white-space: pre-line;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+p {
+	letter-spacing: var(--letter-spacing, 0);
+	margin: 0 auto 1em;
+	max-width: var(--s-copy-width);
+	padding: 0 2rem;
+}
+
+ul {
+	margin: 0 auto 1em;
+	max-width: calc(var(--s-copy-width) - 5rem);
+	padding: 0 2rem 0 5rem;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+a {
+	@include reduced-motion {
+		transition: none;
+	}
+
+	border-bottom: 2px solid $c-link-border;
+	color: $c-link;
+	font-weight: 500;
+	text-decoration: none;
+	transition: border-bottom-color 0.25s, color 0.25s;
+
+	&:hover {
+		border-bottom-color: $c-link-border-hover;
+		color: $c-link-hover;
+	}
+}
+
+%special-link {
+	border-bottom: 0;
+	color: inherit;
+
+	&:hover {
+		color: inherit;
+	}
+}
+
+.special-link {
+	@extend %special-link;
+}
+
+%button {
+	@extend %special-link;
+
+	@include reduced-motion {
+		transition: none;
+	}
+
+	appearance: none;
+	border: 1px solid $c-theme;
+	border-bottom: 1px solid $c-theme;
+	border-radius: 2px;
+	background-color: transparent;
+	color: $c-theme;
+	cursor: pointer;
+	display: inline-block;
+	font: inherit;
+	font-family: var(--f-system-family);
+	padding: 0.5em 1em;
+	text-decoration: none;
+	//text-transform: uppercase;
+	transition: background-color 0.25s;
+
+	&:hover {
+		background-color: $c-button-hover-background;
+		color: $c-theme;
+	}
+}
+
+button {
+	@extend %button;
+}
+
