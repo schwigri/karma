@@ -141,6 +141,46 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 
 			// Add exclusion categories.
 			$wp_customize->add_setting(
+				'enable_translations',
+				array(
+					'capabilitiy'       => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'enable_translations',
+				array(
+					'type'     => 'checkbox',
+					'section'  => 'options',
+					'priority' => 0,
+					'label'    => __( 'Enable translations', 'karma' ),
+				)
+			);
+
+			// Add exclusion categories.
+			$wp_customize->add_setting(
+				'translations_disclaimer_link',
+				array(
+					'capabilitiy'       => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'translations_disclaimer_link',
+				array(
+					'type'     => 'text',
+					'section'  => 'options',
+					'priority' => 0,
+					'label'    => __( 'Translations disclaimer link', 'karma' ),
+				)
+			);
+
+			// Add exclusion categories.
+			$wp_customize->add_setting(
 				'exclude_categories',
 				array(
 					'capabilitiy'       => 'edit_theme_options',

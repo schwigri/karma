@@ -68,14 +68,16 @@
 						</span>
 					</button>--><!-- .mobile-nav-toggle -->
 
-					<button class="toggle translations-toggle mobile-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
-						<span class="toggle-inner">
-							<span class="toggle-icon">
-								<?php karma_the_theme_svg( 'translation' ); ?>
+					<?php if ( true === get_theme_mod( 'enable_translations' ) ) : ?>
+						<button class="toggle translations-toggle mobile-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
+							<span class="toggle-inner">
+								<span class="toggle-icon">
+									<?php karma_the_theme_svg( 'translation' ); ?>
+								</span>
+								<span class="toggle-text"><?php esc_html_e( 'Translations', 'karma' ); ?></span>
 							</span>
-							<span class="toggle-text"><?php esc_html_e( 'Translations', 'karma' ); ?></span>
-						</span>
-					</button><!-- .mobile-translations-toggle -->
+						</button><!-- .mobile-translations-toggle -->
+					<?php endif; ?>
 
 				</div><!-- .header-titles-wrapper -->
 
@@ -116,18 +118,20 @@
 
 						</div><!-- .search-toggle-wrapper -->
 
-						<div class="toggle-wrapper translate-toggle-wrapper">
+						<?php if ( true === get_theme_mod( 'enable_translations' ) ) : ?>
+							<div class="toggle-wrapper translate-toggle-wrapper">
 
-						<button class="toggle translations-toggle desktop-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
-								<span class="toggle-inner">
-									<span class="toggle-icon">
-										<?php karma_the_theme_svg( 'translation' ); ?>
+								<button class="toggle translations-toggle desktop-translations-toggle" data-toggle-target=".translations-modal"  data-toggle-body-class="showing-search-modal" aria-expanded="false" data-set-focus=".close-translations-toggle">
+									<span class="toggle-inner">
+										<span class="toggle-icon">
+											<?php karma_the_theme_svg( 'translation' ); ?>
+										</span>
+										<span class="toggle-text"><?php esc_html_e( 'Translate', 'karma' ); ?></span>
 									</span>
-									<span class="toggle-text"><?php esc_html_e( 'Translate', 'karma' ); ?></span>
-								</span>
-							</button><!-- .desktop-translate-toggle -->
+								</button><!-- .desktop-translate-toggle -->
 
-						</div><!-- .translate-toggle-wrapper -->
+							</div><!-- .translate-toggle-wrapper -->
+						<?php endif; ?>
 
 					</div><!-- .header-toggles -->
 				<?php endif; ?>

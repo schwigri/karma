@@ -1,0 +1,28 @@
+.translations-content-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.skiptranslate {
+	padding: 0 0.2em;
+
+	& > div {
+		margin-left: -0.2em;
+	}
+
+	select {
+		font-size: 2em;
+	}
+}
+
+.google-translate-element {
+	padding-top: 1em;
+}
+
+.disclaimer-notice {
+	color: $c-text-light;
+	font-size: 0.8em;
+	margin-top: 0.5em;
+	padding: 0;
+	width: 100%;
+}

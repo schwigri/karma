@@ -1418,6 +1418,40 @@ button.search-untoggle {
 	padding: .5em 0;
 }
 
+.translations-content-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.skiptranslate {
+	padding: 0 0.2em;
+}
+
+.skiptranslate>div {
+	margin-left: -0.2em;
+}
+
+.skiptranslate select {
+	font-size: 2em;
+}
+
+.google-translate-element {
+	padding-top: 1em;
+}
+
+.disclaimer-notice {
+	color: #6d6d6d;
+	font-size: 0.8em;
+	margin-top: 0.5em;
+	padding: 0;
+	width: 100%;
+}
+
 @media (min-width: 700px) {
 	html {
 		font-size: 78%;
