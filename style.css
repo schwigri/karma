@@ -1174,6 +1174,7 @@ cite::before {
 .mobile-translations-toggle {
 	bottom: 0;
 	display: block;
+	height: 2.4rem;
 	top: 3.15rem;
 }
 
