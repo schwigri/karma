@@ -3,23 +3,6 @@
 	display: none;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// p {
-// 	max-width: 100%;
-// 	padding: 0 4rem;
-// }
-
-// ul {
-// 	max-width: calc(100% - 7rem);
-// 	padding: 0 4rem 0 7rem;
-// }
-
-
 .has-header-image > .has-image,
 .has-header-image > .post:not(.card) > .has-image { // sass-lint:disable-line force-pseudo-nesting
 	padding-bottom: calc(9 / 16 * 50%);

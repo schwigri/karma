@@ -60,16 +60,6 @@
 	max-width: $s-large;
 }
 
-%content-inner {
-	@extend %inner;
-
-	max-width: $s-content;
-}
-
-.content-inner {
-	@extend %content-inner;
-}
-
 %copy-inner {
 	@extend %inner;
 
@@ -78,6 +68,16 @@
 
 .copy-inner {
 	@extend %copy-inner;
+}
+
+%content-inner {
+	@extend %inner;
+
+	max-width: $s-content;
+}
+
+.content-inner {
+	@extend %content-inner;
 }
 
 .site-content {
@@ -93,6 +93,10 @@
 }
 
 .has-header-image {
+	@include medium {
+		margin-top: 0;
+	}
+
 	margin-top: 0;
 }
 

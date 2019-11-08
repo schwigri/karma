@@ -18,6 +18,7 @@ License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html).
 html,
 body {
 	margin: 0;
+	overflow: auto;
 	padding: 0;
 }
 
@@ -190,16 +191,17 @@ cite::before {
 }
 
 .inner,
-.content-inner,
-.shaded-section h2,
-.alignwide,
-.footer-brands-container,
-.cards-container,
 .copy-inner,
 .site-content form,
 .wp-block-embed-youtube,
 .wp-block-image,
-.wp-block-quote {
+.wp-block-quote,
+.content-inner,
+.shaded-section h2,
+.alignwide,
+.footer-brands-container,
+.large-cards-container,
+.cards-container {
 	margin-left: auto;
 	margin-right: auto;
 	width: calc(100% - 4rem);
@@ -209,20 +211,21 @@ cite::before {
 	max-width: 1220px;
 }
 
-.content-inner,
-.shaded-section h2,
-.alignwide,
-.footer-brands-container,
-.cards-container {
-	max-width: 960px;
-}
-
 .copy-inner,
 .site-content form,
 .wp-block-embed-youtube,
 .wp-block-image,
 .wp-block-quote {
 	max-width: 640px;
+}
+
+.content-inner,
+.shaded-section h2,
+.alignwide,
+.footer-brands-container,
+.large-cards-container,
+.cards-container {
+	max-width: 960px;
 }
 
 .site-content {
@@ -1253,6 +1256,7 @@ cite::before {
 }
 
 .has-header-image > .has-image,
+.has-header-image > .page:not(.card) > .has-image,
 .has-header-image > .post:not(.card) > .has-image {
 	height: 0;
 	margin-bottom: 4rem;
@@ -1261,6 +1265,7 @@ cite::before {
 }
 
 .has-header-image > .has-image .inner,
+.has-header-image > .page:not(.card) > .has-image .inner,
 .has-header-image > .post:not(.card) > .has-image .inner {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -1287,6 +1292,7 @@ cite::before {
 }
 
 .has-header-image > .has-image .meta-icon .svg-icon,
+.has-header-image > .page:not(.card) > .has-image .meta-icon .svg-icon,
 .has-header-image > .post:not(.card) > .has-image .meta-icon .svg-icon {
 	fill: #fff;
 }
@@ -1354,6 +1360,10 @@ cite::before {
 
 	.site-content {
 		margin: 8rem 0;
+	}
+
+	.has-header-image {
+		margin-top: 0;
 	}
 
 	.shaded-section {
@@ -1487,6 +1497,7 @@ cite::before {
 	}
 
 	.has-header-image > .has-image,
+	.has-header-image > .page:not(.card) > .has-image,
 	.has-header-image > .post:not(.card) > .has-image {
 		margin-bottom: 8rem;
 	}

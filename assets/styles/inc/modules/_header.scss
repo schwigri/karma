@@ -223,6 +223,7 @@
 		@extend %has-image;
 	}
 
+	& > .page,
 	& > .post {
 		&:not(.card) {
 			& > .has-image {

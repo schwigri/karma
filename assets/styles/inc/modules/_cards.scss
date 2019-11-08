@@ -139,6 +139,8 @@
 }
 
 .large-cards-container {
+	@extend %content-inner;
+
 	@include medium {
 		grid-template-columns: repeat(2, 1fr);
 	}
