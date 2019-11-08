@@ -1306,6 +1306,12 @@ cite::before {
 	fill: #fff;
 }
 
+.has-header-image > .has-image .post-meta-wrapper,
+.has-header-image > .page:not(.card) > .has-image .post-meta-wrapper,
+.has-header-image > .post:not(.card) > .has-image .post-meta-wrapper {
+	width: auto;
+}
+
 .hide-title h1,
 .hide-title .page-meta {
 	display: none;
