@@ -139,6 +139,26 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 				)
 			);
 
+			// Add custom blog title.
+			$wp_customize->add_setting(
+				'google_analytics',
+				array(
+					'capabilitiy'       => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'google_analytics',
+				array(
+					'type'     => 'text',
+					'section'  => 'options',
+					'priority' => 0,
+					'label'    => __( 'Google Analytics ID', 'karma' ),
+				)
+			);
+
 			// Add exclusion categories.
 			$wp_customize->add_setting(
 				'enable_translations',

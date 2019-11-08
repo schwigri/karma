@@ -20,6 +20,17 @@
 
 		<?php wp_head(); ?>
 
+		<?php if ( '' !== get_theme_mod( 'google_analytics', '' ) ) : ?>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					dataLayer.push( arguments );
+				}
+				gtag( 'js', new Date() );
+				gtag( 'config', '<?php echo esc_html( get_theme_mod( 'google_analytics', '' ) ); ?>' );
+			</script>
+		<?php endif; ?>
+
 	</head>
 
 	<body <?php body_class(); ?>>

@@ -125,6 +125,12 @@ function karma_register_scripts() {
 	// Enqueue theme script.
 	wp_enqueue_script( 'karma-script', get_template_directory_uri() . '/assets/scripts/karma.js', array(), $theme_version, true );
 
+	// Enqueue Google Analytics, if enabled.
+	if ( '' !== get_theme_mod( 'google_analytics', '' ) ) {
+		$ga_url = sprintf( 'https://www.googletagmanager.com/gtag/js?id=%1$s', get_theme_mod( 'google_analytics' ) );
+		wp_enqueue_script( 'karma-google-analytics', $ga_url, array(), $theme_version, false );
+	}
+
 	// Enqueue Lity.
 	wp_enqueue_script( 'karma-lity-script', get_template_directory_uri() . '/assets/scripts/lity.js', array( 'jquery' ), $theme_version, true );
 
