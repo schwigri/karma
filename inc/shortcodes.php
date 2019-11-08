@@ -296,7 +296,7 @@ function karma_tiles( $atts ) {
 
 		if ( $attributes['link'] ) {
 			$lity  = false;
-			$blank = false === strpos( $custom_properties[$attributes['link']][0], get_site_url() );
+			$blank = false === strpos( $custom_properties[ $attributes['link'] ][0], get_site_url() );
 			$link  = '<a ' . ( true === $blank ? ' target="_blank" rel="noopener noreferrer" ' : '' ) . ' href="' . esc_url( $custom_properties[ $attributes['link'] ][0] ) . '" class="button">' . __( 'Learn more', 'karma' ) . '</a>';
 		}
 
