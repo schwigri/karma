@@ -13,7 +13,7 @@ get_header();
 
 	<div class="inner">
 
-		<h1 class="entry-title"><?php esc_html_e( 'Looks like you drove down SR‐404.', 'karma' ); ?></h1>
+		<h1 class="entry-title"><?php esc_html_e( 'Looks like you drove down SR 404.', 'karma' ); ?></h1>
 		<div class="intro-text">
 			<p>
 				<?php esc_html_e( 'The page you were looking for could not be found.', 'karma' ); ?>
