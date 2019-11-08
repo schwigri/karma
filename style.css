@@ -201,6 +201,7 @@ cite::before {
 .wp-block-file,
 .wp-block-image,
 .wp-block-quote,
+.post-meta-wrapper,
 .content-inner,
 .shaded-section h2,
 .alignwide,
@@ -221,7 +222,8 @@ cite::before {
 .wp-block-embed-youtube,
 .wp-block-file,
 .wp-block-image,
-.wp-block-quote {
+.wp-block-quote,
+.post-meta-wrapper {
 	max-width: 640px;
 }
 

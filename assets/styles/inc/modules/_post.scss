@@ -34,5 +34,7 @@
 }
 
 .post-meta-wrapper {
+	@extend %copy-inner;
+
 	text-align: center;
 }
