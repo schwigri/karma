@@ -4,6 +4,8 @@
 
 Designed with usability, accessibility, and simplicity in mind.
 
+![Build status](https://travis-ci.com/schwigri/karma.svg?branch=master)
+
 ## Installation
 
 The easiest way to install Karma is to [download the latest release](https://github.com/schwigri/karma/releases) and upload the release to your WordPress site.
