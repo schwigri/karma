@@ -194,6 +194,7 @@ cite::before {
 .copy-inner,
 .site-content form,
 .wp-block-embed-youtube,
+.wp-block-file,
 .wp-block-image,
 .wp-block-quote,
 .content-inner,
@@ -214,6 +215,7 @@ cite::before {
 .copy-inner,
 .site-content form,
 .wp-block-embed-youtube,
+.wp-block-file,
 .wp-block-image,
 .wp-block-quote {
 	max-width: 640px;
@@ -991,6 +993,10 @@ cite::before {
 	width: 100%;
 }
 
+.large-cards-container .pagination-wrapper {
+	grid-column: auto / span 2;
+}
+
 .cards-carousel-track {
 	display: grid;
 	grid-gap: 2rem;
@@ -1297,7 +1303,8 @@ cite::before {
 	fill: #fff;
 }
 
-.hide-title h1 {
+.hide-title h1,
+.hide-title .page-meta {
 	display: none;
 }
 

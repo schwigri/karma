@@ -234,7 +234,8 @@
 }
 
 .hide-title {
-	h1 {
+	h1,
+	.page-meta {
 		display: none;
 	}
 

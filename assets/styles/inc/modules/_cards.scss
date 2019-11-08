@@ -153,6 +153,10 @@
 		max-width: 100%;
 		width: 100%;
 	}
+
+	.pagination-wrapper {
+		grid-column: auto / span 2;
+	}
 }
 
 .cards-carousel-track {
