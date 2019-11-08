@@ -38,4 +38,4 @@ Karma utilizes some third-party resources, and their copyrights and licenses are
 
     © 2016–2019 The Inter Project Authors
 
-    License: SIL Open FOnt License 1.1
+    License: SIL Open Font License 1.1
