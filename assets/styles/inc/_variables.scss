@@ -1,19 +1,21 @@
-// Sizes.
+// Sizing.
 $s-medium: 700px;
-$s-large: 1000px;
-$s-x-large: 1220px;
+$s-large: 1220px;
 
-// Color literals.
+$s-icon-size: 2.4rem;
+$s-copy: 640px;
+$s-content: 960px;
+
+// Colors.
 $c-black: #000;
 $c-white: #fff;
 
-// Theme colors.
 $c-background: #fff;
-$c-dark-background: #222;
-$c-text: #000;
+$c-background-dark: #222;
+$c-background-light: #eee;
+$c-text: #333;
 $c-text-light: #6d6d6d;
 $c-light-on-dark: #fff;
-$c-light-background: #eee;
 $c-card-shadow: rgba(0, 0, 0, 0.25);
 $c-theme: #8e6e5d;
 $c-button-hover-background: rgba($c-theme, 0.1);
@@ -21,24 +23,11 @@ $c-link: $c-theme;
 $c-link-hover: darken($c-theme, 10);
 $c-link-border: rgba($c-theme, 0.25);
 $c-link-border-hover: $c-theme;
-$c-translucent-background: rgba(0, 0, 0, 0.5);
+$c-background-translucent: rgba(0, 0, 0, 0.5);
+$c-cta-background: rgba($c-black, 0.5);
+$c-cta-border: rgba($c-white, 0.5);
 
-$c-home-cta-background: rgba($c-black, 0.5);
-$c-home-cta-border: rgba($c-white, 0.5);
-
+// Fonts.
 $f-system-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-
-:root {
-	--f-copy-family: Inter, sans-serif;
-	--f-copy-family-var: "Inter var", sans-serif;
-	--f-copy-family-var-exp: "Inter var experimental", sans-serif;
-	--f-copy-weight: 300;
-
-	--f-heading-family: big-caslon-fb, sans-serif;
-	--f-heading-weight: 800;
-
-	--f-system-family: #{$f-system-family};
-
-	--s-content-width: 960px;
-	--s-copy-width: 640px;
-}
+$f-heading-family: big-caslon-fb, serif;
+$f-copy-family: Inter, sans-serif;

@@ -27,7 +27,7 @@
 							}, 'google-translate-element' );
 						}
 					</script>
-					<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
 
 					<?php if ( '' !== get_theme_mod( 'translations_disclaimer_link', '' ) ) : ?>
 						<p class="disclaimer-notice">

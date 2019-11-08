@@ -22,7 +22,9 @@ $post_class = is_singular() ? '' : 'card';
 			<?php
 			if ( is_search() || ! is_singular() ) {
 				the_excerpt();
-				?><p><a href="<?php the_permalink(); ?>" class="button"><?php esc_html_e( 'Read more', 'karma' ); ?></a></p><?php
+				?>
+				<p><a href="<?php the_permalink(); ?>" class="button"><?php esc_html_e( 'Read more', 'karma' ); ?></a></p>
+				<?php
 			} else {
 				the_content();
 			}

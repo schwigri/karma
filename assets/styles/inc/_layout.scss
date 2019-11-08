@@ -1,6 +1,5 @@
 %copy {
-	font-family: var(--f-copy-family);
-	font-weight: var(--f-copy-weight);
+	font-family: $f-copy-family;
 }
 
 .copy {
@@ -8,8 +7,8 @@
 }
 
 %heading {
-	font-family: var(--f-heading-family);
-	font-weight: var(--f-heading-weight);
+	font-family: $f-heading-family;
+	font-weight: 800;
 }
 
 .heading {
@@ -58,19 +57,43 @@
 .inner {
 	@extend %inner;
 
-	max-width: 120rem;
+	max-width: $s-large;
 }
 
 %content-inner {
 	@extend %inner;
 
-	max-width: var(--s-content-width);
+	max-width: $s-content;
+}
+
+.content-inner {
+	@extend %content-inner;
 }
 
 %copy-inner {
 	@extend %inner;
 
-	max-width: var(--s-copy-width);
+	max-width: $s-copy;
+}
+
+.copy-inner {
+	@extend %copy-inner;
+}
+
+.site-content {
+	@include medium {
+		margin: 8rem 0;
+	}
+
+	margin: 4rem 0;
+
+	form {
+		@extend %copy-inner;
+	}
+}
+
+.has-header-image {
+	margin-top: 0;
 }
 
 .shaded-section {
@@ -78,7 +101,7 @@
 		margin: 8rem 0;
 	}
 
-	background-color: $c-light-background;
+	background-color: $c-background-light;
 	margin: 4rem 0;
 	padding: 4rem 0;
 
@@ -89,60 +112,17 @@
 	}
 }
 
-.site-content {
-	@include medium {
-		margin: 8rem 0;
-	}
-
-	margin: 4rem 0;
-
-	&.has-header-image {
-		margin-top: 0;
-	}
-
-	form {
-		@extend %copy-inner;
-	}
-}
-
 .subtitle {
 	color: $c-text-light;
-	font-family: var(--f-heading-family);
+	font-family: $f-heading-family;
 	font-style: italic;
 	letter-spacing: 0.05em;
 }
 
-details {
-	margin-bottom: 1.5em;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2em;
-	max-width: calc(var(--s-copy-width) + 1em);
-	padding-left: 0;
-	padding-right: 1em;
-
-	& + details {
-		margin-top: 0;
-	}
-}
-
-summary {
-	cursor: pointer;
-	position: relative;
-
-	h2 {
-		margin-top: -1em;
-	}
-}
-
 .pagination-wrapper {
-	@include medium {
-		grid-column: auto / span 2;
-	}
-
 	margin: 4rem auto;
 
-	h2 {
+	hr {
 		border-color: $c-text-light;
 		border-left: 0;
 		border-right: 0;
@@ -153,7 +133,28 @@ summary {
 
 	.nav-links {
 		display: flex;
-		justify-content: space-between;
 		justify-content: space-around;
+	}
+}
+
+.page-header-featured-image-container {
+	background-color: $c-black;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+
+	img {
+		height: 100%;
+		left: 0;
+		object-fit: cover;
+		object-position: center;
+		opacity: 0.5;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 }

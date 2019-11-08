@@ -1,3 +1,10 @@
+.current-menu-item {
+	a {
+		border-bottom-color: $c-theme;
+		color: $c-text;
+	}
+}
+
 .menu-item {
 	@include medium {
 		margin-left: 1em;
@@ -15,63 +22,4 @@
 			color: $c-text;
 		}
 	}
-}
-
-.current-menu-item {
-	a {
-		border-bottom-color: $c-theme;
-		color: $c-text;
-	}
-}
-
-.primary-menu {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	margin: 0;
-	max-width: 100%;
-	padding: 0;
-
-
-	&:hover {
-		a {
-			border-bottom-color: $c-link-border;
-			color: $c-text-light;
-
-			&:hover {
-				border-bottom-color: $c-theme;
-				color: $c-text;
-			}
-		}
-	}
-}
-
-.primary-menu-wrapper {
-	@include medium {
-		margin-top: 0;
-		width: auto;
-	}
-
-	margin-top: 3.15rem;
-	width: 100%;
-}
-
-.header-toggles {
-	@include medium {
-		display: flex;
-	}
-
-	display: none;
-}
-
-.header-navigation-wrapper {
-	@include medium {
-		flex-direction: row;
-	}
-
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-	flex-shrink: 0;
 }

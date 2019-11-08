@@ -5,14 +5,14 @@
 
 	align-items: center;
 	display: flex;
-	height: var(--s-icon-size);
+	height: $s-icon-size;
 	transform: scale(1);
 	transform-origin: center;
 	transition: transform 0.15s linear;
+}
 
-	.svg-icon {
-		fill: var(--c-text);
-	}
+.svg-icon {
+	fill: $c-text;
 }
 
 .toggle-text {
@@ -37,7 +37,7 @@
 		background-color: transparent;
 
 		.toggle-icon {
-			transform: scale(1.1);
+			transform: scale(1.15);
 		}
 	}
 }

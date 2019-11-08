@@ -12,7 +12,7 @@
  * @param array   $args Arguments for displaying the site logo.
  * @param boolean $echo Echo or return the HTML.
  *
- * @return string $html Cimpiled HTML based on passed arguments.
+ * @return string $html Compiled HTML based on passed arguments.
  */
 function karma_site_logo( $args = array(), $echo = true ) {
 	$logo       = get_custom_logo();
@@ -104,7 +104,12 @@ function karma_site_description( $echo = true ) {
 }
 
 /**
+ * Gets meta for a specified post.
  *
+ * @param int    $post_id  The ID of the post to get the meta of.
+ * @param string $location The location the meta info will be placed.
+ *
+ * @return string $meta_output The HTML code for the post meta.
  */
 function karma_get_post_meta( $post_id = null, $location = 'single-top' ) {
 	if ( ! $post_id ) {
@@ -145,11 +150,11 @@ function karma_get_post_meta( $post_id = null, $location = 'single-top' ) {
 					?>
 					<li class="post-date meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Post date', 'karma' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Post date', 'karma' ); ?></span>
 							<?php karma_the_theme_svg( 'calendar' ); ?>
 						</span><!-- .meta-icon -->
 						<span class="meta-text">
-							<?php the_time( get_option( 'date_format' ) ) ; ?>
+							<?php the_time( get_option( 'date_format' ) ); ?>
 						</span><!-- .meta-text -->
 					</li>
 					<?php
@@ -171,7 +176,10 @@ function karma_get_post_meta( $post_id = null, $location = 'single-top' ) {
 }
 
 /**
+ * Gets the post meta HTML and echoes it.
  *
+ * @param int    $post_id  The ID of the post to get the meta of.
+ * @param string $location The location the meta info will be placed.
  */
 function karma_the_post_meta( $post_id = null, $location = 'single-top' ) {
 	echo karma_get_post_meta( $post_id, $location ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

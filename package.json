@@ -40,12 +40,12 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "gulp:compile": "gulp compileSass",
-    "compile": "run-p lint:pkg-json lint:js gulp lint:css",
+    "lint": "run-p -l lint:*",
     "lint:sass": "gulp lintSass",
     "lint:css": "wp-scripts lint-style 'style.css' 'assets/styles/embedded.css'",
     "lint:js": "wp-scripts lint-js 'assets/scripts/karma.js'",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "watch": "run-p watch:*",
     "watch:sass": "gulp watchSass"
   },
   "browserslist": [

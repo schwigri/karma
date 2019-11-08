@@ -1,41 +1,3 @@
-.meta-icon {
-	display: flex;
-	margin-right: 0.5em;
-	padding-bottom: 3px;
-	width: 0.8em;
-
-	.svg-icon {
-		height: auto;
-		width: 100%;
-	}
-}
-
-.meta-wrapper {
-	align-items: center;
-	display: flex;
-	margin-bottom: 0;
-
-	&::after {
-		content: " / ";
-	}
-	&:last-child {
-		&::after {
-			content: "";
-		}
-	}
-}
-
-.post-meta {
-	display: flex;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.post-meta-wrapper {
-	text-align: center;
-}
-
 .site-logo {
 	margin: 0;
 	max-width: 100%;
@@ -45,18 +7,17 @@
 .site-title {
 	margin: 0;
 	max-width: 100%;
-
-	a {
-		color: inherit;
-		text-decoration: none;
-	}
 }
 
 .custom-logo-link {
-	@extend %special-link;
-
+	background-color: initial;
+	border: 0;
 	display: block;
 	width: 100%;
+
+	&:hover {
+		background-color: initial;
+	}
 }
 
 .custom-logo {
@@ -68,6 +29,7 @@
 	width: 100%;
 }
 
+// @TODO: Integrate customization abilities.
 .site-description {
 	display: none;
 }
@@ -98,7 +60,7 @@
 		padding: 2.8rem 0;
 	}
 
-	max-width: 168rem;
+	max-width: 168rem; // @TODO: Use variable instead.
 	padding: 3.15rem 0;
 	position: relative;
 
@@ -112,7 +74,8 @@
 	position: relative;
 }
 
-.desktop-search-toggle {
+.desktop-search-toggle,
+.desktop-translations-toggle {
 	@include medium {
 		display: block;
 	}
@@ -127,31 +90,33 @@
 		display: none;
 	}
 
-	height: 2.4rem;
+	bottom: 0;
+	display: block;
+	top: 3.15rem;
 }
 
 .mobile-search-toggle {
-	bottom: 0;
 	left: -2rem;
 	position: absolute;
-	top: 3.15rem;
 }
 
-.mobile-translations-toggle,
-.mobile-nav-toggle {
-	bottom: 0;
+.mobile-nav-toggle,
+.mobile-translations-toggle {
 	position: absolute;
 	right: -2rem;
-	top: 3.15rem;
 }
 
 .header-toggles {
-	display: flex;
+	@include medium {
+		display: flex;
+	}
+
+	display: none;
 	margin-left: 2rem;
 	position: relative;
 
 	&::before {
-		background: $c-text-light;
+		background-color: $c-text-light;
 		content: "";
 		display: block;
 		height: 150%;
@@ -163,28 +128,71 @@
 }
 
 .toggle-wrapper {
+	.toggle {
+		margin: 0 0 0 2rem;
+		padding: 0;
+	}
+
 	&:last-child {
 		.toggle {
 			padding-right: 0;
 		}
 	}
+}
 
-	.toggle {
-		margin: 0 0 0 2rem;
-		padding: 0;
+.primary-menu {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+}
+
+.header-navigation-wrapper {
+	@include medium {
+		flex-direction: row;
+	}
+
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+}
+
+.primary-menu-wrapper {
+	@include medium {
+		margin-top: 0;
+		width: auto;
+	}
+
+	margin-top: 3.15rem;
+	width: 100%;
+
+	&:hover {
+		.menu-item {
+			a {
+				border-bottom-color: $c-link-border;
+				color: $c-text-light;
+
+				&:hover {
+					border-bottom-color: $c-theme;
+					color: $c-text;
+				}
+			}
+		}
 	}
 }
 
-.has-header-image > .has-image,
-.has-header-image > .post:not(.card) > .has-image,  // sass-lint:disable-line force-pseudo-nesting
-.has-header-image > .page:not(.card) > .has-image { // sass-lint:disable-line force-pseudo-nesting
+%has-image {
 	@include medium {
 		margin-bottom: 8rem;
 	}
 
 	height: 0;
 	margin-bottom: 4rem;
-	padding-bottom: calc(9 / 27 * 100%);
+	padding-bottom: calc(1 / 3 * 100%);
 	position: relative;
 
 	.inner {
@@ -203,14 +211,24 @@
 		z-index: 2;
 	}
 
-	.post-meta {
-		a {
-			color: $c-light-on-dark;
+	.meta-icon {
+		.svg-icon {
+			fill: $c-light-on-dark;
 		}
 	}
+}
 
-	.meta-icon svg {
-		fill: $c-light-on-dark;
+.has-header-image {
+	& > .has-image {
+		@extend %has-image;
+	}
+
+	& > .post {
+		&:not(.card) {
+			& > .has-image {
+				@extend %has-image;
+			}
+		}
 	}
 }
 
@@ -223,27 +241,5 @@
 		img {
 			opacity: 1;
 		}
-	}
-}
-
-.page-header-featured-image-container {
-	background-color: $c-black;
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	overflow: hidden;
-	width: 100%;
-	z-index: 1;
-
-	img {
-		height: 100%;
-		left: 0;
-		object-fit: cover;
-		object-position: center;
-		opacity: 0.5;
-		position: absolute;
-		top: 0;
-		width: 100%;
 	}
 }

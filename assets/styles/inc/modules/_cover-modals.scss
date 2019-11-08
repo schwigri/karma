@@ -1,18 +1,12 @@
 .cover-modal {
 	display: none;
-	-ms-overflow-style: none;
-	overflow: -moz-scrollbars-none;
-}
 
-.cover-modal::-webkit-scrollbar {
-	display: none !important;
-}
+	&.show-modal {
+		display: block;
+		cursor: pointer;
 
-.cover-modal.show-modal {
-	display: block;
-	cursor: pointer;
-}
-
-.cover-modal.show-modal > * {
-	cursor: default;
+		& > * {
+			cursor: default;
+		}
+	}
 }

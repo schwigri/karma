@@ -1,22 +1,17 @@
-.card .entry-content,
-.card-content {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-	justify-content: space-between;
+.card-image-container {
+	background-color: $c-black;
+	height: 0;
+	padding-bottom: calc(9 / 16 * 100%);
+	position: relative;
+	width: 100%;
 
-	p {
-		width: calc(100% - 4rem);
-
-		&:last-child {
-			display: flex;
-			flex-direction: row-reverse;
-			flex-wrap: wrap-reverse;
-
-			a {
-				flex-shrink: 0;
-			}
-		}
+	img {
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
 	}
 }
 
@@ -33,27 +28,7 @@
 	flex-direction: column;
 	max-width: calc(100% - 2rem);
 	overflow: hidden;
-	width: var(--s-copy-width);
-
-	.post-meta-wrapper {
-		color: $c-text-light;
-		font-size: 0.8em;
-		margin: 0 0 1em;
-		padding: 0 2rem;
-
-		a {
-			color: $c-text-light;
-		}
-
-		.meta-icon {
-			margin-right: 0.25em;
-			padding-bottom: 0;
-		}
-
-		.svg-icon {
-			fill: $c-text-light;
-		}
-	}
+	width: $s-copy;
 
 	h1 {
 		font-size: 1.5em;
@@ -102,6 +77,47 @@
 			opacity: 1;
 		}
 	}
+
+	.post-meta-wrapper {
+		color: $c-text-light;
+		font-size: 0.8em;
+		margin: 0 0 1rem;
+		padding: 0 2rem;
+
+		a {
+			color: $c-text-light;
+		}
+
+		.meta-icon {
+			margin-right: 0.25em;
+			padding-bottom: 0;
+		}
+
+		.svg-icon {
+			fill: $c-text-light;
+		}
+	}
+}
+
+.card-content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-between;
+
+	p {
+		width: calc(100% - 4rem);
+
+		&:last-child {
+			display: flex;
+			flex-direction: row-reverse;
+			flex-wrap: wrap-reverse;
+
+			a {
+				flex-shrink: 0;
+			}
+		}
+	}
 }
 
 .horizontal-card {
@@ -122,20 +138,18 @@
 	}
 }
 
-.card-image-container {
-	background-color: $c-black;
-	height: 0;
-	padding-bottom: calc(9 / 16 * 100%);
-	position: relative;
-	width: 100%;
+.large-cards-container {
+	@include medium {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-	img {
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-		position: absolute;
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: 1fr;
+
+	.card {
+		max-width: 100%;
 		width: 100%;
-		z-index: 1;
 	}
 }
 
@@ -145,22 +159,11 @@
 	}
 
 	@include medium {
-		gap: 4rem; // sass-lint:disable-line no-misspelled-properties Is a real property.
 		grid-gap: 4rem;
 		padding: 0 4rem;
 	}
 
-	// align-items: center;
-	// display: flex;
-	// flex-direction: row-reverse;
-	// flex-wrap: nowrap;
-	// justify-content: flex-start;
-	// margin: 0 2rem 0 0;
-	// transition: transform 0.5s;
-	// width: auto;
-
 	display: grid;
-	gap: 2rem; // sass-lint:disable-line no-misspelled-properties Is a real property.
 	grid-gap: 2rem;
 	padding: 0 2rem;
 	overflow: visible;
@@ -178,65 +181,21 @@
 		max-width: 100%;
 	}
 
-	&[data-chapters="2"] {
-		@include medium {
-			grid-template-columns: repeat(2, var(--s-copy-width)) auto;
-		}
-		grid-template-columns: repeat(2, calc(100vw - 4rem)) auto;
-
-		.card {
-			&:nth-child(1) {
-				grid-column: 2;
+	@for $i from 2 through 4 {
+		&[data-chapters="#{$i}"] {
+			@include medium {
+				grid-template-columns: repeat(#{$i}, $s-copy) auto;
 			}
 
-			&:nth-child(2) {
-				grid-column: 1;
-			}
-		}
-	}
+			grid-template-columns: repeat(#{$i}, calc(100vw - 4rem)) auto;
 
-	&[data-chapters="3"] {
-		@include medium {
-			grid-template-columns: repeat(3, var(--s-copy-width)) auto;
-		}
-		grid-template-columns: repeat(3, calc(100vw - 4rem)) auto;
-
-		.card {
-			&:nth-child(1) {
-				grid-column: 3;
-			}
-
-			&:nth-child(2) {
-				grid-column: 2;
-			}
-
-			&:nth-child(3) {
-				grid-column: 1;
-			}
-		}
-	}
-
-	&[data-chapters="4"] {
-		@include medium {
-			grid-template-columns: repeat(4, var(--s-copy-width));
-		}
-		grid-template-columns: repeat(4, calc(100vw - 4rem));
-
-		.card {
-			&:nth-child(1) {
-				grid-column: 4;
-			}
-
-			&:nth-child(2) {
-				grid-column: 3;
-			}
-
-			&:nth-child(3) {
-				grid-column: 2;
-			}
-
-			&:nth-child(4) {
-				grid-column: 1;
+			.card {
+				$pos: $i + 1;
+				@for $j from 1 through $i {
+					&:nth-child(#{$j}) {
+						grid-column: $pos - $j;
+					}
+				}
 			}
 		}
 	}
@@ -247,38 +206,20 @@
 	padding: 1em 0;
 	position: relative;
 
+	// @TODO: Style the toggles for the track.
 	.toggle {
-		background-color: $c-theme;
-		opacity: 1;
-		position: absolute;
-		top: 50%;
-		transition: opacity 0.25s, visibility 0.25s;
-		visibility: visible;
-		z-index: 1;
-
-		&[disabled] {
-			opacity: 0;
-			visibility: hidden;
-		}
+		display: none;
 	}
 }
 
-.large-cards-container {
-	@extend %content-inner;
-
-	@include medium {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
+.horizontal-cards-container {
 	display: grid;
-	gap: 2rem; // sass-lint:disable-line no-misspelled-properties Is a real property.
 	grid-gap: 2rem;
 	grid-template-columns: 1fr;
+}
 
-	.card {
-		max-width: 100%;
-		width: 100%;
-	}
+.cards-container {
+	@extend %content-inner;
 }
 
 .cards-section {
@@ -289,9 +230,7 @@
 	margin-bottom: 4rem;
 
 	h2 {
-		@include medium {
-			max-width: var(--s-content-width);
-		}
+		max-width: $s-content;
 	}
 }
 
@@ -305,15 +244,6 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 
-		grid-template-columns: repeat(1, 1fr);
+		grid-template-columns: 1fr;
 	}
-}
-
-.horizontal-cards-container {
-	@extend %content-inner;
-
-	display: grid;
-	gap: 2rem; // sass-lint:disable-line no-misspelled-properties Is a real property.
-	grid-gap: 2rem;
-	grid-template-columns: 1fr;
 }

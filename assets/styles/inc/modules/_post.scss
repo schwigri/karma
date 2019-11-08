@@ -1,0 +1,38 @@
+.meta-icon {
+	display: flex;
+	margin-right: 0.5em;
+	padding-bottom: 3px;
+	width: 0.8em;
+
+	.svg-icon {
+		height: auto;
+		width: 100%;
+	}
+}
+
+.meta-wrapper {
+	align-items: center;
+	display: flex;
+	margin-bottom: 0;
+
+	&::after {
+		content: " / ";
+	}
+
+	&:last-child {
+		&::after {
+			content: "";
+		}
+	}
+}
+
+.post-meta {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.post-meta-wrapper {
+	text-align: center;
+}

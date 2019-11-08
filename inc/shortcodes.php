@@ -25,6 +25,35 @@ function karma_theme_fields() {
 }
 
 /**
+ * Gets all the custom fields of a post, ignoring certain fields.
+ *
+ * @param array $custom_fields All of the custom fields.
+ * @param array $ignore        The fields to ignore.
+ *
+ * @return string $buttons The HTML for the buttons.
+ */
+function karma_the_custom_field_buttons( $custom_fields, $ignore = array() ) {
+	$ignore = array_merge( $ignore, karma_theme_fields() );
+
+	$buttons = '';
+
+	foreach ( $custom_fields as $custom_field_name => $custom_field_value ) {
+		if ( ! in_array( $custom_field_name, $ignore, true ) && '_' !== substr( $custom_field_name, 0, 1 ) ) {
+			$values     = explode( ',', $custom_field_value[0] );
+			$target_url = $values[0];
+			$lang       = '';
+			if ( count( $values ) > 1 ) {
+				$target_url = str_replace( ' ', '', $values[1] );
+				$lang       = $values[0];
+			}
+			$buttons .= '<a class="button button-borderless" lang="' . esc_attr( $lang ) . '" href="' . esc_url( $target_url ) . '" target="_blank" data-lity>' . esc_html( $custom_field_name ) . '</a>';
+		}
+	}
+
+	return $buttons;
+}
+
+/**
  * Displays the latest posts.
  *
  * @param array $atts The shortcode attributes.
@@ -181,18 +210,7 @@ function karma_chapters( $atts ) {
 
 		$custom_properties = get_post_custom( get_the_ID() );
 
-		foreach ( $custom_properties as $property_name => $property_value ) {
-			if ( '_' !== substr( $property_name, 0, 1 ) && ! in_array( $property_name, karma_theme_fields() ) ) {
-				$values     = explode( ',', $property_value[0] );
-				$target_url = $values[0];
-				$lang       = '';
-				if ( count( $values ) > 1 ) {
-					$target_url = str_replace( ' ', '', $values[1] );
-					$lang       = $values[0];
-				}
-				$content .= '<a class="button button-borderless" lang="' . esc_attr( $lang ) . '" href="' . esc_url( $target_url ) . '" target="_blank" data-lity>' . esc_html( $property_name ) . '</a>';
-			}
-		}
+		$content .= karma_the_custom_field_buttons( $custom_properties );
 
 		$content .= '</p>';
 		$content .= '</div><!-- .card-content -->';
@@ -279,18 +297,7 @@ function karma_tiles( $atts ) {
 
 		$content .= $link;
 
-		foreach ( $custom_properties as $property_name => $property_value ) {
-			if ( '_' !== substr( $property_name, 0, 1 ) && ! in_array( $property_name, karma_theme_fields() ) ) {
-				$values     = explode( ',', $property_value[0] );
-				$target_url = $values[0];
-				$lang       = '';
-				if ( count( $values ) > 1 ) {
-					$target_url = str_replace( ' ', '', $values[1] );
-					$lang       = $values[0];
-				}
-				$content .= '<a class="button button-borderless" lang="' . esc_attr( $lang ) . '" href="' . esc_url( $target_url ) . '" target="_blank" data-lity>' . esc_html( $property_name ) . '</a>';
-			}
-		}
+		$content .= karma_the_custom_field_buttons( $custom_properties );
 
 		$content .= '</p>';
 		$content .= '</div><!-- .card-content -->';
