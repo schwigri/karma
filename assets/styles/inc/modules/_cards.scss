@@ -155,7 +155,9 @@
 	}
 
 	.pagination-wrapper {
-		grid-column: auto / span 2;
+		@include medium {
+			grid-column: auto / span 2;
+		}
 	}
 }
 
