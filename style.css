@@ -1313,7 +1313,8 @@ cite::before {
 }
 
 .hide-title h1,
-.hide-title .page-meta {
+.hide-title .page-meta,
+.hide-title .post-meta {
 	display: none;
 }
 
