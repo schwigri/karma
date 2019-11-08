@@ -31,3 +31,7 @@ $c-cta-border: rgba($c-white, 0.5);
 $f-system-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 $f-heading-family: big-caslon-fb, serif;
 $f-copy-family: Inter, sans-serif;
+
+:root {
+	--s-medium: #{$s-medium};
+}

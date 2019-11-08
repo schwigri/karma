@@ -175,6 +175,17 @@ const KarmaCarousel = class {
 
 const Karma = class {
 	constructor() {
+		this.toggleLightboxes = this.toggleLightboxes.bind( this );
+
+		this.lightboxElements = document.querySelectorAll( '[data-lity]' );
+		this.lightboxesEnabled = true;
+
+		this.mediumBreakpoint = window.parseInt( window.getComputedStyle( document.documentElement ).getPropertyValue( '--s-medium' ) );
+
+		this.toggleLightboxes();
+
+		this.addEventListeners();
+
 		this.setLetterSpacings();
 		if ( document.getElementById( 'homepage-video' ) ) {
 			this.homepageVideo = {
@@ -213,6 +224,24 @@ const Karma = class {
 		return {
 			reducedMotion: window.matchMedia( '(prefers-reduced-motion: reduce)' ),
 		};
+	}
+
+	toggleLightboxes() {
+		if ( window.innerWidth < this.mediumBreakpoint && this.lightboxesEnabled ) {
+			for ( let i = 0; i < this.lightboxElements.length; i++ ) {
+				this.lightboxElements[ i ].removeAttribute( 'data-lity' );
+			}
+			this.lightboxesEnabled = false;
+		} else if ( window.innerWidth >= this.mediumBreakpoint && ! this.lightboxesEnabled ) {
+			for ( let i = 0; i < this.lightboxElements.length; i++ ) {
+				this.lightboxElements[ i ].setAttribute( 'data-lity', 'data-lity' );
+			}
+			this.lightboxesEnabled = true;
+		}
+	}
+
+	addEventListeners() {
+		window.addEventListener( 'resize', this.toggleLightboxes );
 	}
 };
 
