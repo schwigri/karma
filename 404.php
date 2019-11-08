@@ -18,15 +18,12 @@ get_header();
 			<p>
 				<?php esc_html_e( 'The page you were looking for could not be found.', 'karma' ); ?>
 			</p>
+			<p>
+				<button class="button" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+					<?php esc_html_e( 'Search for something', 'karma' ); ?>
+				</button>
+			</p>
 		</div><!-- .intro-text -->
-
-		<?php
-		get_search_form(
-			array(
-				'label' => __( '404 not found', 'karma' ),
-			)
-		);
-		?>
 
 	</div><!-- .inner -->
 
