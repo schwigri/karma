@@ -27,12 +27,13 @@ function karma_theme_fields() {
 /**
  * Gets all the custom fields of a post, ignoring certain fields.
  *
- * @param array $custom_fields All of the custom fields.
- * @param array $ignore        The fields to ignore.
+ * @param array   $custom_fields All of the custom fields.
+ * @param boolean $lity          Whether or not to use Lity.
+ * @param array   $ignore        The fields to ignore.
  *
  * @return string $buttons The HTML for the buttons.
  */
-function karma_the_custom_field_buttons( $custom_fields, $ignore = array() ) {
+function karma_the_custom_field_buttons( $custom_fields, $lity = true, $ignore = array() ) {
 	$ignore = array_merge( $ignore, karma_theme_fields() );
 
 	$buttons = '';
@@ -46,7 +47,7 @@ function karma_the_custom_field_buttons( $custom_fields, $ignore = array() ) {
 				$target_url = str_replace( ' ', '', $values[1] );
 				$lang       = $values[0];
 			}
-			$buttons .= '<a class="button button-borderless" lang="' . esc_attr( $lang ) . '" href="' . esc_url( $target_url ) . '" target="_blank" data-lity>' . esc_html( $custom_field_name ) . '</a>';
+			$buttons .= '<a class="button button-borderless" lang="' . esc_attr( $lang ) . '" href="' . esc_url( $target_url ) . '" target="_blank"' . ( true === $lity ? ' data-lity' : '' ) . '>' . esc_html( $custom_field_name ) . '</a>';
 		}
 	}
 
@@ -291,13 +292,17 @@ function karma_tiles( $atts ) {
 
 		$link = '<a data-lity rel="noopener noreferrer" href="' . get_permalink() . '" class="button">' . __( 'Learn more', 'karma' ) . '</a>';
 
+		$lity = true;
+
 		if ( $attributes['link'] ) {
-			$link = '<a target="_blank" rel="noopener noreferrer" href="' . esc_url( $custom_properties[ $attributes['link'] ][0] ) . '" class="button">' . __( 'Learn more', 'karma' ) . '</a>';
+			$lity  = false;
+			$blank = false === strpos( $custom_properties[$attributes['link']][0], get_site_url() );
+			$link  = '<a ' . ( true === $blank ? ' target="_blank" rel="noopener noreferrer" ' : '' ) . ' href="' . esc_url( $custom_properties[ $attributes['link'] ][0] ) . '" class="button">' . __( 'Learn more', 'karma' ) . '</a>';
 		}
 
 		$content .= $link;
 
-		$content .= karma_the_custom_field_buttons( $custom_properties );
+		$content .= karma_the_custom_field_buttons( $custom_properties, $lity );
 
 		$content .= '</p>';
 		$content .= '</div><!-- .card-content -->';
