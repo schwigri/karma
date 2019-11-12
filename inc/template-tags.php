@@ -169,6 +169,16 @@ function karma_get_post_meta( $post_id = null, $location = 'single-top' ) {
 		wp_reset_postdata();
 		$meta_output = ob_get_clean();
 
+		// @TODO: Add customization here.
+		$categories_to_ignore = array(
+			'tools',
+			'maps',
+		);
+
+		if ( is_page( $post_id ) || in_category( $categories_to_ignore, $the_post ) ) {
+			$has_meta = false;
+		}
+
 		if ( $has_meta && $meta_output ) {
 			return $meta_output;
 		}
