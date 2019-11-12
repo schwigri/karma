@@ -200,6 +200,7 @@ cite::before {
 .wp-block-embed-youtube,
 .wp-block-file,
 .wp-block-image,
+.wp-block-jetpack-gif,
 .wp-block-quote,
 .post-meta-wrapper,
 .content-inner,
@@ -222,6 +223,7 @@ cite::before {
 .wp-block-embed-youtube,
 .wp-block-file,
 .wp-block-image,
+.wp-block-jetpack-gif,
 .wp-block-quote,
 .post-meta-wrapper {
 	max-width: 640px;
