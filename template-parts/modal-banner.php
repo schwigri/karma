@@ -7,7 +7,7 @@
  */
 
 ?>
-<?php if ( '' !== get_theme_mod( 'banner_text' ) ) : ?>
+<?php if ( '' !== get_theme_mod( 'banner_text', '' ) ) : ?>
 	<div class="banner" id="banner">
 
 		<div class="banner-inner">
