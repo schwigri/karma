@@ -48,6 +48,10 @@
 	@extend %screen-reader-text;
 }
 
+.wf-loading {
+	font-family: sans-serif !important; // sass-lint:disable-line no-important Forced by WordPress
+}
+
 %inner {
 	margin-left: auto;
 	margin-right: auto;

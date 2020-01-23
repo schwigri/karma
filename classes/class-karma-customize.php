@@ -255,7 +255,7 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 					'type'     => 'textarea',
 					'section'  => 'options',
 					'priority' => 0,
-					'label'    => __( 'Homepage banner text line one', 'karma' ),
+					'label'    => __( 'Homepage hero text line one', 'karma' ),
 				)
 			);
 
@@ -275,7 +275,7 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 					'type'     => 'textarea',
 					'section'  => 'options',
 					'priority' => 0,
-					'label'    => __( 'Homepage banner text line two', 'karma' ),
+					'label'    => __( 'Homepage hero text line two', 'karma' ),
 				)
 			);
 
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 					'type'     => 'text',
 					'section'  => 'options',
 					'priority' => 0,
-					'label'    => __( 'Homepage banner CTA text', 'karma' ),
+					'label'    => __( 'Homepage hero CTA text', 'karma' ),
 				)
 			);
 
@@ -315,7 +315,7 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 					'type'     => 'text',
 					'section'  => 'options',
 					'priority' => 0,
-					'label'    => __( 'Homepage banner CTA link', 'karma' ),
+					'label'    => __( 'Homepage hero CTA link', 'karma' ),
 				)
 			);
 
@@ -337,6 +337,87 @@ if ( ! class_exists( 'Karma_Customize' ) ) {
 					'priority'    => 10,
 					'label'       => __( 'Adobe Fonts Project ID', 'karma' ),
 					'description' => __( 'Loads your Adobe Fonts web project to enable custom font usage.', 'karma' ),
+				)
+			);
+
+			// Add banner options.
+			$wp_customize->add_setting(
+				'banner_text',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'banner_text',
+				array(
+					'type'        => 'textarea',
+					'section'     => 'options',
+					'priority'    => 0,
+					'label'       => __( 'Banner text', 'karma' ),
+					'description' => __( 'Sets the content for a notification banner', 'karma' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'banner_link',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'banner_link',
+				array(
+					'type'        => 'text',
+					'section'     => 'options',
+					'priority'    => 0,
+					'label'       => __( 'Banner link', 'karma' ),
+					'description' => __( 'Sets the link for a notification banner', 'karma' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'banner_button_text',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'banner_button_text',
+				array(
+					'type'        => 'text',
+					'section'     => 'options',
+					'priority'    => 0,
+					'label'       => __( 'Banner link text', 'karma' ),
+					'description' => __( 'Sets the link text for a notification banner', 'karma' ),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'close_banner_text',
+				array(
+					'capability'        => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_text' ),
+				)
+			);
+
+			$wp_customize->add_control(
+				'close_banner_text',
+				array(
+					'type'        => 'text',
+					'section'     => 'options',
+					'priority'    => 0,
+					'label'       => __( 'Banner close button text', 'karma' ),
+					'description' => __( 'Sets the text for the banner close button', 'karma' ),
 				)
 			);
 		}

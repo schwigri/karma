@@ -152,11 +152,18 @@
 			</div><!-- .header-inner -->
 
 			<?php
+			// Add the search modal.
 			if ( true === $enable_header_search ) {
 				get_template_part( 'template-parts/modal-search' );
 			}
 
+			// Add the translations modal.
 			get_template_part( 'template-parts/modal-translations' );
+
+			// Add the banner modal if activated.
+			if ( '' !== $enable_header_banner ) {
+				get_template_part( 'template-parts/modal-banner' );
+			}
 			?>
 
 			<?php
@@ -241,5 +248,7 @@
 
 				</div><!-- .homepage-media -->
 			<?php endif; ?>
+
+
 
 		</header><!-- .site-header -->

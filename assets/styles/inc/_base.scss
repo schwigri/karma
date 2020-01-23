@@ -48,6 +48,7 @@ p {
 	padding: 0 2rem;
 }
 
+ol,
 ul {
 	margin: 0 auto 1em;
 	max-width: calc(#{$s-copy} - 5rem);
@@ -73,6 +74,20 @@ a {
 		border-bottom-color: $c-link-border-hover;
 		color: $c-link-hover;
 	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+figure {
+	max-width: 100%;
+	margin: 0 auto 2rem;
 }
 
 %special-link {

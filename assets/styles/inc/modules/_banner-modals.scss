@@ -1,0 +1,51 @@
+.banner {
+	background-color: $c-white;
+	box-shadow: 0 2px 4px $c-card-shadow;
+	box-sizing: border-box;
+	left: 0;
+	padding: 2rem;
+	position: relative;
+	top: 0;
+	transition: opacity 0.3s;
+	width: 100%;
+	z-index: 8;
+
+	p {
+		padding-left: 0;
+		padding-right: 0;
+		width: 100%;
+
+		&:last-child {
+			align-items: center;
+			margin-bottom: 0;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.banner-emoji-container {
+	float: right;
+	font-size: 1.5em;
+	padding-left:  0.75rem;
+}
+
+.site-header {
+	&.closing-banner {
+		@include reduced-motion {
+			transition: 0;
+		}
+
+		transition: padding-bottom 0.3s;
+	}
+}
+
+.homepage-media {
+	&.closing-banner {
+		@include reduced-motion {
+			transition: 0;
+		}
+
+		transition: margin-top 0.3s;
+	}
+}

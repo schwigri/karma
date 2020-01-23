@@ -137,6 +137,11 @@ function karma_register_scripts() {
 	// Enqueue Twentytwenty script.
 	wp_enqueue_script( 'karma-twentytwenty-script', get_template_directory_uri() . '/assets/scripts/twentytwenty.js', array(), $theme_version, false );
 	wp_script_add_data( 'twentytwenty-js', 'async', true );
+
+	// Add banner script if needed.
+	if ( '' !== get_theme_mod( 'banner_text', '' ) ) {
+		wp_enqueue_script( 'karma-banner', get_template_directory_uri() . '/assets/scripts/banner.js', array(), $theme_version, true );
+	}
 }
 
 // Enqueue scripts.

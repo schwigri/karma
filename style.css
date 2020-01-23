@@ -4,7 +4,7 @@
 Theme Name: Karma
 Theme URI: https://github.com/schwigri/karma
 Text Domain: karma
-Version: 1.0.0
+Version: 1.1.0
 Description: कर्म (karma) in the present affects one’s future in the current life, as well as the nature and quality of future lives.
 Author: Griffen Schwiesow
 Author URI: https://www.griffen.me/
@@ -65,6 +65,7 @@ p {
 	padding: 0 2rem;
 }
 
+ol,
 ul {
 	margin: 0 auto 1em;
 	max-width: calc(640px - 5rem);
@@ -87,6 +88,20 @@ a {
 a:hover {
 	border-bottom-color: #8e6e5d;
 	color: #6f5649;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+figure {
+	max-width: 100%;
+	margin: 0 auto 2rem;
 }
 
 .special-link {
@@ -192,6 +207,10 @@ cite::before {
 	position: absolute;
 	width: 1px;
 	word-wrap: normal;
+}
+
+.wf-loading {
+	font-family: sans-serif !important;
 }
 
 .inner,
@@ -336,10 +355,29 @@ cite::before {
 	line-height: 1.4;
 }
 
+.wp-block-embed__wrapper {
+	position: relative;
+}
+
 .wp-block-embed__wrapper iframe {
 	height: 100%;
 	left: 0;
 	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.wp-embed-aspect-4-3 {
+	height: auto;
+	position: relative;
+	width: 100%;
+}
+
+.wp-embed-aspect-4-3 .wp-block-embed__wrapper {
+	height: 0;
+	left: 0;
+	padding-bottom: calc(3 / 4 * 100%);
+	position: relative;
 	top: 0;
 	width: 100%;
 }
@@ -374,6 +412,12 @@ cite::before {
 
 .alignright {
 	margin-right: calc((100vw - 640px) / 4 * -1);
+}
+
+.wp-block-jetpack-gif {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-bottom: 1em;
 }
 
 .cta {
@@ -954,6 +998,28 @@ cite::before {
 	width: calc(100% - 4rem);
 }
 
+.banner {
+	background-color: #fff;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	left: 0;
+	padding: 2rem;
+	position: relative;
+	top: 0;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	width: 100%;
+	z-index: 8;
+}
+
+.banner p {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
+
 .card-content p:last-child {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1371,6 +1437,36 @@ cite::before {
 	cursor: default;
 }
 
+.banner p:last-child {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+
+.banner-emoji-container {
+	float: right;
+	font-size: 1.5em;
+	padding-left: 0.75rem;
+}
+
+.site-header.closing-banner {
+	-webkit-transition: padding-bottom 0.3s;
+	transition: padding-bottom 0.3s;
+}
+
+.homepage-media.closing-banner {
+	-webkit-transition: margin-top 0.3s;
+	transition: margin-top 0.3s;
+}
+
 @media (min-width: 700px) {
 
 	html {
@@ -1592,6 +1688,16 @@ cite::before {
 	.cards-carousel-track {
 		-webkit-transition: none;
 		transition: none;
+	}
+
+	.site-header.closing-banner {
+		-webkit-transition: 0;
+		transition: 0;
+	}
+
+	.homepage-media.closing-banner {
+		-webkit-transition: 0;
+		transition: 0;
 	}
 
 }
